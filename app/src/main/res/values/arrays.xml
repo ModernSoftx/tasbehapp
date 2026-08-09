@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tasbeh_categories">
+        <item>Custom</item>
+        <item>Dhikr</item>
+        <item>Dua</item>
+        <item>Salawat</item>
+        <item>Quran</item>
+        <item>Other</item>
+    </string-array>
+</resources>

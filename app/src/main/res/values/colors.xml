@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Light Theme -->
+    <color name="primary">#2E7D32</color>
+    <color name="primary_variant">#1B5E20</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="secondary">#FFB300</color>
+    <color name="on_secondary">#000000</color>
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="track_color">#E0E0E0</color>
+    <color name="accent_amber">#FFB300</color>
+    <color name="progress_track">#F5F5F5</color>
+    <color name="border_color">#E5E5E5</color>
+    <color name="input_background">#F2F2F7</color>
+    <color name="text_tertiary">#8E8E93</color>
+    <color name="border_light">#F5F5F5</color>
+
+    <!-- Dark Theme (Defined in values-night/colors.xml if needed, but adding variants here for reference) -->
+    <color name="primary_dark">#4CAF50</color>
+    <color name="secondary_dark">#FFC107</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B0B0B0</color>
+
+    <!-- Badge Colors -->
+    <color name="badge_favourite">#FFB300</color>
+    <color name="badge_active">#2E7D32</color>
+
+</resources>

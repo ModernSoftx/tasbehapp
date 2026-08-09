@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardTasbeh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <!-- FrameLayout: allows line + badge to overlay the main content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🟢 ACTIVE INDICATOR - Green vertical line, left edge, full card height -->
+        <View
+            android:id="@+id/activeIndicatorLine"
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@drawable/active_indicator_line"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- Main Content — paddingStart=28dp to clear the 8dp active line -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="28dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <!-- ibMoreMenu top-right -->
+            <ImageButton
+                android:id="@+id/ibMoreMenu"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="More options"
+                android:padding="4dp"
+                android:src="@drawable/ic_more_vert"
+                app:tint="@color/text_secondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- tvArabic ends to LEFT of ibMoreMenu -->
+            <TextView
+                android:id="@+id/tvArabic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="@color/primary"
+                android:textSize="24sp"
+                android:layout_marginEnd="8dp"
+                android:maxWidth="120dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintEnd_toStartOf="@id/ibMoreMenu"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="سُبْحَانَ ٱللَّٰهِ" />
+
+            <!-- llHeader ends to LEFT of tvArabic -->
+            <LinearLayout
+                android:id="@+id/llHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvArabic"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="SubhanAllah" />
+
+                <TextView
+                    android:id="@+id/tvTranslation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="Glory be to Allah" />
+
+            </LinearLayout>
+
+            <!-- Mid Row: Counts -->
+            <TextView
+                android:id="@+id/tvCurrentCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/text_primary"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llHeader"
+                tools:text="33" />
+
+            <TextView
+                android:id="@+id/tvTargetCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="6dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvCurrentCount"
+                app:layout_constraintStart_toEndOf="@id/tvCurrentCount"
+                tools:text="/ 100" />
+
+            <ImageView
+                android:id="@+id/ivCheck"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_check_circle"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvCurrentCount"
+                app:layout_constraintStart_toEndOf="@id/tvTargetCount"
+                app:layout_constraintTop_toTopOf="@id/tvCurrentCount"
+                tools:visibility="visible" />
+
+            <!-- tvLapsCount — below tvCurrentCount -->
+            <TextView
+                android:id="@+id/tvLapsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:drawablePadding="4dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_repeat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrentCount"
+                tools:visibility="visible"
+                tools:text="Laps: 3" />
+
+            <!-- progressIndicator — below tvLapsCount -->
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="12dp"
+                app:indicatorColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/tvLapsCount"
+                app:trackColor="@color/progress_track"
+                app:trackCornerRadius="4dp"
+                app:trackThickness="8dp"
+                tools:progress="33" />
+
+            <!-- Bottom Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/progressIndicator">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/ic_clock"
+                    app:tint="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/tvTimestamp"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10sp"
+                    tools:text="2 mins ago" />
+
+                <TextView
+                    android:id="@+id/btnAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primary"
+                    android:layout_marginEnd="12dp"
+                    android:textSize="12sp"
+                    tools:text="RESUME" />
+                <FrameLayout
+                    android:id="@+id/badgeFavourite"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+
+                    android:background="@drawable/badge_favourite_square"
+                    android:elevation="4dp"
+                    android:visibility="gone"
+                    android:contentDescription="@string/favourite_badge"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </FrameLayout>
+
+</com.google.android.material.card.MaterialCardView>
